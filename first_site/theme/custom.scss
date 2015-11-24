@@ -1,0 +1,488 @@
+@import "icons";
+@import "responsitive";
+
+body, html {
+
+  line-height: 1.4em;
+}
+
+.link {
+
+  text-decoration: underline;
+  &_white {
+    color: #fff;
+
+    &:hover {
+      color: darken(#fff, 20%);
+    }
+  }
+
+  &_nounder {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &_social {
+    text-decoration: none;
+    display: inline-block;
+    height: 30px;
+    &:hover {
+      color: darken(#fff, 20%);
+      text-decoration: none;
+    }
+  }
+}
+/* Таблица - задник она делает фон */
+.sch-btbl {
+
+  width: 100%;
+  position: relative;
+  z-index: 2;
+
+  &__top, &__mid, &__btm {
+    width: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  &__top img {
+    width: 100%;
+
+  }
+
+  &__mid {
+    background-image: url(../img/sc/m.png);
+    background-repeat: repeat-y;
+    min-height: 373px;
+  }
+
+  &__btm img {
+    width: 100%;
+  }
+
+
+  &__img-wrap {
+    height: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__img1 {
+    position: relative;
+    left: -31%;
+    top: -66px;
+    width: 50%;
+    opacity: .8;
+    height: auto;
+  }
+
+  &__img2 {
+    position: relative;
+    right: -25%;
+    top: -109px;
+    width: 18%;
+    height: auto;
+  }
+
+  &__img3 {
+    position: relative;
+    left: -28%;
+    bottom: 192px;
+    width: 29%;
+    height: auto;
+  }
+
+  &__img4 {
+    position: relative;
+    right: -60%;
+    bottom: 363px;
+    width: 13%;
+    height: auto;
+  }
+
+  &__img5 {
+    position: relative;
+    right: -35%;
+    bottom: 200px;
+    width: 20%;
+    height: auto;
+  }
+}
+
+/* Контейнер с самим расписанием, она располагается в середине таблицы с фоном */
+.sch-tbl {
+  padding: 0 73px;
+  font-size: 18px;
+
+  /* Обёртка таблицы с расписанием на день, у кождого дня своя таблица с расписанием */
+  &__day-wrapper {
+
+  }
+
+
+
+}
+
+/* Таблица с расписанием на один день */
+.day-table {
+  width: 100%;
+
+  &__head {
+    line-height: 46px;
+  }
+  /* Название дня недели */
+  &__title td{
+    font-size: 28px;
+    font-weight: 600;
+    padding: 20px 0 6px;
+  }
+
+  /* Строка с конкретным мероприятием в дне */
+  &__item {
+    text-align: left;
+  }
+
+  tbody tr:first-child {
+    font-weight: 600;
+  }
+}
+
+/* Строка с мероприятием в дне */
+
+.day-table-item {
+
+
+
+  &__time {
+  }
+
+  &__text {
+    padding: 0 29px;
+  }
+
+  &__button {
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: right;
+  }
+}
+
+/* Форма заявки на курс */
+
+.form {
+
+  &_course {
+    display: none;
+
+  }
+
+  &__title {
+    font-size: 27px;
+    text-align: left;
+    display: inline-block;
+  }
+
+  &__back {
+    text-align: right;
+    font-size: 27px;
+    cursor: pointer;
+    float: right;
+
+    &:hover {
+      color: darken(#fff, 20%);
+    }
+  }
+
+  &__wrapper {
+
+    .simpleform-submit {
+      background-color: transparent!important;
+      border: 3px solid white!important;
+      border-radius: 5px!important;
+      color: white!important;
+      float: right!important;
+      font-size: 24px;
+      padding: 6px 10px!important;
+      width: 30%!important;
+      cursor: pointer;
+      &:hover {
+        color: darken(#fff, 20%)!important;
+      }
+    }
+
+    .simpleform-message {
+      background-color: transparent!important;
+      border: 3px solid white!important;
+      border-radius: 5px!important;
+      color: white!important;
+      margin-top: 17px!important;
+      font-size: 24px!important;
+      cursor: pointer;
+      &:hover {
+        color: darken(#fff, 20%)!important;
+      }
+    }
+  }
+
+  &__field {
+
+    &_text {
+
+      label {
+        display: inline-block !important;
+        width: 40% !important;
+        text-align: right;
+        font-size: 24px;
+        font-weight: 400;
+        padding-right: 13px;
+        margin-top: 1em!important;
+      }
+
+      label.required:after {
+        color: #fff!important;
+      }
+
+      input {
+        display: inline-block !important;
+        width: 60% !important;
+        background-color: transparent!important;
+        border: 3px solid white!important;
+        border-radius: 5px!important;
+        color: white!important;
+        font-size: 20px;
+        padding: 6px 10px!important;
+      }
+    }
+  }
+
+}
+
+/* форма контакта в футере */
+.social {
+  display: inline-block;
+  font-size: 30px;
+  height: 30px;
+}
+.footer {
+
+  .phone {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+  
+  &__soc {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 17px;
+  }
+  &__back {
+    display: inline;
+    cursor: pointer;
+  }
+  &__phones {
+    display: inline-block;
+  }
+
+  &__form {
+    display: none;
+    position: relative;
+    bottom: -15px;
+
+    .simpleform-message {
+      background-color: transparent;
+      color: white;
+      border: 0;
+      margin: 0;
+      padding: 0;
+    }
+    .simpleform-contact {
+      margin: 0;
+      display: inline;
+      input {
+        width: 257px;
+      }
+      #contact {
+
+
+        display: inline-block;
+        .form__field_text-footer {
+
+          display: inline-block;
+          font-size: 17px;
+
+          label {
+            display: inline;
+            &:after {
+              color: #fff;
+            }
+          }
+          input {
+            display: inline !important;
+            background-color: transparent !important;
+            border: 1px solid #fff !important;
+            border-radius: 3px;
+            margin: 0 15px;
+            color: #fff !important;
+            padding: 0px 10px !important;
+          }
+        }
+
+      }
+
+      .simpleform-submit {
+        background-color: transparent !important;
+        border: 1px solid #fff !important;
+        border-radius: 3px;
+        color: #fff !important;
+        cursor: pointer;
+        margin: 0;
+        font-size: 17px;
+        padding: 0px 0 !important;
+        &:hover {
+          color: darken(#fff, 20%)!important;
+        }
+      }
+    }
+  }
+
+  &__backcall {
+
+  }
+
+
+
+}
+
+/* start http://r.q9x.ru/issues/382 */
+
+.program-photo-frame_vertical {
+  height: 424px!important;
+}
+
+.program-photo_vertical {
+  top: 10%!important;
+  width: 74%!important;
+
+}
+
+.program-desc-text_vertical {
+  top: 83%!important;
+
+}
+/* end http://r.q9x.ru/issues/382 */
+
+.board-small {
+  font-size: 23px;
+  text-align: left;
+
+  @include resp(mobile) {
+    font-size: 17px;
+    line-height: 1.3em;
+  }
+  @include resp(tablet) {
+    font-size: 17px;
+    line-height: 1.3em;
+  }
+  @include resp(laptop) {
+    font-size: 17px;
+    line-height: 1.3em;
+  }
+
+
+}
+
+.sec-3 {
+  .sticker-text-1,
+  .sticker-text-2,
+  .sticker-text-3 {
+
+    @include resp(mobile) {
+      font-size: 17px;
+      line-height: 1.1em;
+    }
+    @include resp(tablet) {
+      font-size: 17px;
+      line-height: 1.1em;
+    }
+    @include resp(laptop) {
+      font-size: 17px;
+      line-height: 1.1em;
+    }
+
+  }
+
+}
+
+.sec-4 {
+  .main-heading {
+
+
+
+    @include resp(mobile) {
+      padding-top: 0!important;
+      padding-bottom: 0!important;
+    }
+
+    @include resp(tablet) {
+      padding-top: 0!important;
+      padding-bottom: 0!important;
+    }
+    @include resp(laptop) {
+      padding-top: 0!important;
+      padding-bottom: 0!important;
+    }
+  }
+
+  &__body {
+
+  }
+}
+
+.sec-5 {
+  .heading-wrap {
+    margin-bottom: 3%;
+  }
+}
+
+.content {
+
+  &.listing-type1 {
+    .program-photo {
+      position: absolute;
+      left: 11%;
+      top: 10%;
+      width: 77%;
+      height: 71%;
+      border: 10px solid #fff;
+      overflow: hidden;
+    }
+
+    .program-desc-text {
+      position: absolute;
+      width: 70%;
+      height: 14%;
+      text-align: left;
+      top: 81%;
+      left: 11%;
+      color: #3d5572;
+      font-size: 18px;
+      white-space: nowrap;
+      overflow: hidden;
+      font-weight: bold;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.blog__img {
+  margin-right: 20px;
+}
+
+/*
+http://r.q9x.ru/issues/420 Картинки отображаются без учёта ориентации
+профиксено пока только для FireFox
+*/
+
+img.mfp-img {
+  image-orientation: from-image;
+}

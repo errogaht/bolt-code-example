@@ -1,0 +1,32 @@
+$breakpoint-mobile: 480;  //максимальная ширина при которой является мобильным, включаяя это значение, всё что больше уже планшет
+$breakpoint-tablet: 992;  //максимальная ширина при которой является планшетом, включая это значение, всё что больше уже ноут
+$breakpoint-laptop: 1200;  //максимальная ширина при которой является ноутом, включая это значение, всё что больше уже комп
+
+/* миксин для респонситиве, смотри ниже как работать с ним*/
+@mixin resp($point) {
+  @if $point == desktop {
+    @media (min-width: $breakpoint-laptop + px) {
+      @content;
+    }
+  } @else if $point == laptop {
+    @media (min-width: $breakpoint-tablet + 1 + px) and (max-width: $breakpoint-laptop - 1 + px) {
+      @content;
+    }
+  } @else if $point == tablet {
+    @media (min-width: $breakpoint-mobile + 1 + px) and (max-width: $breakpoint-tablet + px) {
+      @content;
+    }
+  } @else if $point == mobile {
+    @media (max-width: $breakpoint-mobile + px) {
+      @content;
+    }
+
+  }
+}
+/*
+@include resp(mobile) {
+      width: 200px;
+    }
+*/
+
+

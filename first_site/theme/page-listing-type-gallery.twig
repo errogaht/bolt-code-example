@@ -1,0 +1,36 @@
+{% include '_header.twig' %}
+{# это общий шаблон для листингов, элементы мы получаем из contenttype с названием slug страницы
+   тоесть мы не пользуемся встроенным функционалом страниц-листингов для contenttype'ов
+   так как не понятно как вносить мета данные вообще то так что у нас свой шаблон, но правило такое
+   что страница листинга должна иметь slug такой же как contenttypeslug того типа записей для которых мы создаём
+   листинг #}
+{% setcontent items = page.values.slug %}
+
+<section class="content listing-type-gallery">
+    <div class="sec sec-inner container">
+        <div class="col-xs-12"><p class="main-heading" data-bolt-field="title">{{ page.title }}</p></div>
+        <div class="col-xs-12 container gallery">
+            <img src="{{ paths.theme }}img/layer-gallery-1.png" alt="" class="layer-gallery-1">
+            <img src="{{ paths.theme }}img/layer-gallery-2.svg" alt="" class="layer-gallery-2">
+            <img src="{{ paths.theme }}img/layer-gallery-3.svg" alt="" class="layer-gallery-3">
+            <img src="{{ paths.theme }}img/layer-gallery-4.svg" alt="" class="layer-gallery-4">
+            <img src="{{ paths.theme }}img/layer-gallery-5.png" alt="" class="layer-gallery-5">
+            <img src="{{ paths.theme }}img/layer-gallery-6.png" alt="" class="layer-gallery-6">
+            {% for item in items %}
+                <a href="{{ item.link }}" class="col-xs-4 album">
+                    <img src="{{ paths.theme }}img/gallery-frame-2.png" alt="" class="album-photo-frame">
+
+                    <div class="album-photo">
+                        <img src="{{ item.image.0|image(340, 254, "c") }}" title="{{ item.title }}"
+                             alt="{{ item.title }}">
+                    </div>
+                    <img src="{{ paths.theme }}img/gallery-desc.svg" alt="" class="album-desc-img">
+
+                    <div class="album-desc-text">{{ item.title }}</div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% include '_footer.twig' %}

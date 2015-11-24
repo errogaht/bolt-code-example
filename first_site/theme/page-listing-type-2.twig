@@ -1,0 +1,66 @@
+{% include '_header.twig' %}
+{# для contenttype = programs у нас хитрость, там они бывают разных типов
+   т тут сначала мы проверяем по ЮРЛ что за тип программы запрашивают и
+   делаем соответствующую выборку чтобы показать программы только нужного типа #}
+{% if page.link == '/programs/for-children' %}
+    {% setcontent items = 'programs' where {type: 'Для детей'} orderby '+sortorder' %}
+{% elseif page.link == '/programs/for-junior' %}
+    {% setcontent items = 'programs' where {type: 'Для подростков'} orderby '+sortorder' %}
+{% elseif page.link == '/programs/for-adult' %}
+    {% setcontent items = 'programs' where {type: 'Для взрослых'} orderby '+sortorder' %}
+{% else %}
+    {# это общий шаблон для листингов, элементы мы получаем из contenttype с названием slug страницы
+       тоесть мы не пользуемся встроенным функционалом страниц-листингов для contenttype'ов
+       так как не понятно как вносить мета данные вообще то так что у нас свой шаблон, но правило такое
+       что страница листинга должна иметь slug такой же как contenttypeslug того типа записей для которых мы создаём
+       листинг #}
+    {% setcontent items = page.values.slug %}
+{% endif %}
+<section class="content listing-type2">
+    <div class="sec sec-inner container">
+        <div class="col-xs-12 blog-heading">
+            <p class="main-heading" data-bolt-field="title">{{ page.title }}</p>
+            <img src="{{ paths.theme }}img/layer-blog-1.png" alt="" class="layer-blog-1">
+        </div>
+        <div class="col-xs-12 container blog">
+            <img src="{{ paths.theme }}img/layer-blog-2.svg" alt="" class="layer-blog-2">
+            <img src="{{ paths.theme }}img/layer-blog-3.png" alt="" class="layer-blog-3">
+            <img src="{{ paths.theme }}img/layer-blog-4.png" alt="" class="layer-blog-4">
+            <img src="{{ paths.theme }}img/layer-blog-5.png" alt="" class="layer-blog-5">
+            <img src="{{ paths.theme }}img/layer-blog-6.png" alt="" class="layer-blog-6">
+            <img src="{{ paths.theme }}img/layer-blog-7.svg" alt="" class="layer-blog-7">
+            {% for item in items %}
+
+                <div class="col-xs-6">
+                    <div class="post container">
+                        <div class="col-xs-6 post-img-wrap">
+                            <div class="post-img-hex">
+                                <a href="{{ item.link }}">
+                                <img src="{{ paths.theme }}img/post-img-hex.png">
+                                </a>
+                            </div>
+
+                                <div class="post-img">
+
+                                    <img src="{{ item.image|image(0, 219, "r") }}" title="{{ item.title }}"
+                                         alt="{{ item.title }}">
+                                </div>
+
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="post-date">{{ item.datepublish|date("d.m.Y") }}</div>
+                            <a href="{{ item.link }}">
+                                <div class="post-name">
+                                    {{ item.title }}
+                                </div>
+                            </a>
+
+                            <div class="post-prev">{{ item.body }}</div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% include '_footer.twig' %}

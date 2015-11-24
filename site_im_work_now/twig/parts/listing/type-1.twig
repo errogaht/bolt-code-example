@@ -1,0 +1,31 @@
+<article class="portfolio-item{% if classes is defined %} {{ classes }}{% endif %}">
+    <div class="portfolio-image">
+        {% if img|length > 1 %}
+            <div class="fslider" data-arrows="false" data-speed="400" data-pause="4000">
+                <div class="flexslider">
+                    <div class="slider-wrap">
+                        {% for img in img %}
+                            <div class="slide"><a href="{{ link }}"><img src="{{ img }}" alt="{{ title }}"></a></div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <a href="{{ link }}">
+                <img src="{{ img.0 }}" alt="{{ title }}">
+            </a>
+        {% endif %}
+        <a href="{{ link }}">
+            <div class="portfolio-overlay"></div>
+        </a>
+    </div>
+    <div class="portfolio-desc portfolio-desc_fixed2">
+        <h3><a href="{{ link }}">{{ title }}</a></h3>
+        {% if subtitle is defined %}
+            <span>{{ subtitle }}</span>
+        {% endif %}
+        {% if description is defined %}
+            <p>{{ description }}</p>
+        {% endif %}
+    </div>
+</article>

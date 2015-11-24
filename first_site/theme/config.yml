@@ -1,0 +1,126 @@
+# Optional config file for the theme.
+
+# Variables that are in this file, can be used in your twig template like {{ theme.foo }}
+# Note: If variables do not immediately show up, clear the cache, in the Bolt Backend.
+
+foo: bar
+
+# setting the header image. The default images in this theme all came from Pexels: http://pexels.com
+headerimage:
+    - agriculture-field-grain-1585.jpg
+    - beach-dune-field-1710.jpg
+    - boat-lake-landing-stage-2535.jpg
+    - daisies-flowers-grass-623.jpg
+    - dark-clouds-grass-landscape-405.jpg
+    - forest-grass-lawn-1826.jpg
+
+# Template filenames. If you 're creating a theme for distribution, you can specify
+# the filenames of the templates here. The templates you will set in this config
+# file will override the ones in the global app/config/config.yml, so beware!
+# maintenance_template: maintenance_default.twig
+# homepage_template: index.twig
+# record_template: record.twig
+# listing_template: listing.twig
+# search_results_template: listing.twig
+
+templatefields:
+    contacts.twig:
+        phones:
+            type: text
+            label: Телефоны
+            info: Введите списк телефонов в строго заданном формате, через запятую. <br>Формат: + 375 (29) 505-90-77
+            required: true
+        email:
+           type: text
+           label: Email
+           pattern: email
+
+        mapcode:
+            type: textarea
+            label: Код карты
+            required: true
+        address:
+            type: text
+            required: true
+            label: Адрес
+        footer_text1:
+            type: text
+            required: true
+            label: Текст в футере 1
+        footer_text2:
+            type: text
+            required: true
+            label: Текст в футере 2
+        footer_fb:
+            type: text
+            label: Ссылка на Facebook
+        footer_vk:
+            type: text
+            label: Ссылка на Вконтакте
+        footer_instagram:
+            type: text
+            label: Ссылка на Instagram
+
+
+    index.twig: # Our homepage template
+        sec1_imgs:
+            type: imagelist
+            label: Изображения для секции "Программы" (только 3 штуки)
+            info: Можно загрузить только три фото, можно перетаскивать изображения для изменения их порядка.
+            prefix: '<h2>Секция 1</h2>'
+            postfix: '<hr>'
+        sec2_title:
+            type: text
+            variant: inline
+            label: Заголовок
+            prefix: '<h2>Секция 2</h2>'
+        sec2_body:
+            type: html
+            label: Содержимое
+            postfix: '<hr>'
+        sec3_title:
+            type: text
+            label: Заголовок
+            variant: inline
+            prefix: '<h2>Секция 3</h2>'
+        sec3_spec1:
+            type: html
+            label: Первая особенность
+        sec3_spec2:
+            type: html
+            label: Вторая особенность
+        sec3_spec3:
+            type: html
+            label: Третья особенность
+            postfix: '<hr>'
+        sec4_title:
+            type: text
+            variant: inline
+            label: Заголовок
+            prefix: '<h2>Секция 4</h2>'
+        sec4_body:
+            type: html
+            label: Содержимое
+            postfix: '<hr>'
+        sec5_title:
+            type: text
+            variant: inline
+            label: Заголовок
+            prefix: '<h2>Секция 5</h2>'
+        sec5_img:
+            type: image
+            label: Изображение
+            postfix: '<hr>'
+# There can be defined the templates for the template chooser
+#templateselect:
+#    templates:
+#        record:
+#            name: 'Template for Records'
+#            filename: 'record.twig'
+#templateselect:
+#    templates:
+#        - name: 'Листинг на странице, тип 1'
+#          filename: 'page-listing-type-1.twig'
+#
+#        - name: 'Листинг на странице, тип 2'
+#          filename: 'page-listing-type-2.twig'

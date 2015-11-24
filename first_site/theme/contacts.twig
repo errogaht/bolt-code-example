@@ -1,0 +1,40 @@
+{% include '_header.twig' %}
+{% set phones = getPhonesArray(record.templatefields.phones) %}
+
+<section class="content">
+    <div class="sec sec-inner container">
+        <div class="col-xs-12"><p class="main-heading" data-bolt-field="title">{{ record.title }}</p></div>
+        <div class="col-xs-12 contacts container"><img src="{{ paths.theme }}img/layer-blog-2.svg" alt="" class="layer-contacts-1"><img
+                    src="{{ paths.theme }}img/layer-contacts-3.png" alt="" class="layer-contacts-3"><img
+                    src="{{ paths.theme }}img/layer-contacts-4.png" alt="" class="layer-contacts-4"><img
+                    src="{{ paths.theme }}img/layer-contacts-5.svg" alt="" class="layer-contacts-5"><img
+                    src="{{ paths.theme }}img/layer-contacts-6.png" alt="" class="layer-contacts-6">
+
+            <div class="col-xs-8 col-xs-offset-1 map">
+                <div class="map-wrap">
+                    <div class="map-iframe">
+                        <div class="map-iframe-wrap">
+                            {{ record.templatefields.mapcode }}
+                        </div>
+                    </div>
+                    <img src="{{ paths.theme }}img/layer-map-1.png" alt="" class="layer-map-1"><img src="{{ paths.theme }}img/layer-map-2.svg" alt=""
+                                                                                     class="layer-map-2"><img
+                            src="{{ paths.theme }}img/layer-contacts-2.png" alt="" class="layer-contacts-2"></div>
+            </div>
+            <div class="col-xs-3 note-contacts"><img src="{{ paths.theme }}img/note-contacts.png" alt="" class="note-contacts-img">
+
+                <div class="note-contacts-text">
+                    <p>
+                        Звоните:<br>{% for phone in phones %}<span>{{ phone.fullPhone }}<br></span>{% endfor %}
+                    </p>
+
+                    <p>Пишите:<br><a  data-bolt-field="templatefields[email]" href="mailto:{{ record.templatefields.email }}">{{ record.templatefields.email }} <br></a></p>
+
+                    <p>Приходите:<br><span data-bolt-field="templatefields[address]">{{ record.templatefields.address }} <br></span></p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% include '_footer.twig' %}

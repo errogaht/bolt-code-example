@@ -1,0 +1,19 @@
+.postcontent .portfolio-item .portfolio-image,
+.postcontent .portfolio-item .portfolio-image a,
+.postcontent .portfolio-item .portfolio-image img {
+    height: 206px;
+}
+#content {
+    .portfolio-desc_fixed2 {
+        height: 120px;
+        p {
+            line-height: 1;
+            font-size: 13px;
+        }
+        h3 {
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+    }
+}
+

@@ -1,0 +1,141 @@
+{% include '_header.twig' %}
+
+{# START Код ретаргетинга ВК #}
+<script type="text/javascript">(window.Image ? (new Image()) : document.createElement('img')).src = location.protocol + '//vk.com/rtrg?r=OSk0i42weuT7Wt/j2OIb6nf2KfSwhMeT1ws5vTYzFcdM*TFXtTUZfIi1RhbYnhEN9vhMTEGdogoRl4pg7Jn1uE2v0RcxvndO8*mbdTbbByHMlUgQMn177c0gfOFdaspDjy6fsrT9NmAQSCTibFxq7Zqy8*1fr*p8mE7jiyC1emw-';</script>
+{# END Код ретаргетинга ВК #}
+
+{# dump(record.templatefields.sec1_imgs) #}
+<section class="content">
+    {% set f = record.templatefields %}
+    {% if f.sec1_imgs|length > 2 %}
+        <div class="sec sec-1 container">
+            {% set img1 = f.sec1_imgs.0 %}
+            {% set img2 = f.sec1_imgs.1 %}
+            {% set img3 = f.sec1_imgs.2 %}
+            <div class="photos col-xs-5 col-xs-offset-1"><img src="{{ paths.theme }}img/layer.svg" alt="" class="photos-layer">
+                <div class="photo-frame photo-frame-1">
+                    <div class="photo-inner"><img
+                                src="{{ img1|image(195, 195, "c") }}"
+                                class="photo-img"></div>
+                    <img src="{{ paths.theme }}img/photo-1.png" height="229" width="228" alt=""
+                         class="frame-img"></div>
+                <div class="photo-3-wrap">
+                    <div class="photo-frame photo-frame-3">
+                        <div class="photo-inner"><img
+                                    src="{{ img2|image(295, 295, "c") }}"
+                                    class="photo-img"></div>
+                        <img src="{{ paths.theme }}img/photo-3.png" height="309" width="308"
+                             alt="" class="frame-img"></div>
+                    <img src="{{ paths.theme }}img/rope.png" height="1000" width="9" alt=""
+                         class="rope"></div>
+                <div class="photo-2-wrap">
+                    <div class="photo-frame photo-frame-2">
+                        <div class="photo-inner"><img
+                                    src="{{ img3|image(205, 215, "c") }}"
+                                    class="photo-img"></div>
+                        <img src="{{ paths.theme }}img/photo-2.png" height="247" width="247"
+                             alt="" class="frame-img"></div>
+                    <img src="{{ paths.theme }}img/rope.png" height="1000" width="9" alt=""
+                         class="rope"></div>
+            </div>
+            <div class="label col-xs-5 container">
+                <img src="{{ paths.theme }}img/prog.png" height="81" width="402" alt="" class="prog col-xs-12">
+                <a href="/programs/for-children">
+                    <img src="{{ paths.theme }}img/for-children.png" height="88" width="267" alt="" class="for-children col-xs-8 col-xs-offset-2">
+                </a>
+                <a href="/programs/for-junior">
+                    <img src="{{ paths.theme }}img/for-junior.png" height="70" width="279" alt="" class="for-junior col-xs-8 col-xs-offset-2">
+                </a>
+                <a href="/programs/for-adult">
+                    <img src="{{ paths.theme }}img/for-adult.png" height="70" width="265" alt="" class="for-adult col-xs-8 col-xs-offset-2">
+                </a>
+            </div>
+            <div class="dots col-xs-12">
+                <img src="{{ paths.theme }}img/line_dot.png" alt="" class="line-dot">
+            </div>
+        </div>
+    {% endif %}
+
+    {% if f.sec2_title is defined and f.sec2_body is defined %}
+    <div class="sec sec-2 container">
+        <div class="board col-xs-12"><img src="{{ paths.theme }}img/green-board-big.png" alt=""
+                                          class="img-board">
+            <div class="board-text"><p class="board-heading" data-bolt-field="templatefields[sec2_title]">{{ f.sec2_title }}</p>
+
+                <div class="board-small" data-bolt-field="templatefields[sec2_body]">
+                    {{ f.sec2_body }}
+                </div>
+            </div>
+            <img src="{{ paths.theme }}img/board-layer-1.svg" alt="" class="board-layer-1"><img
+                    src="{{ paths.theme }}img/board-layer-2.svg" alt=""
+                    class="board-layer-2"><img src="{{ paths.theme }}img/board-hex-2.png"
+                                               alt="" class="board-hex-1"><img
+                    src="{{ paths.theme }}img/board-hex-1.png" alt="" class="board-hex-2">
+        </div>
+    </div>
+    {% endif %}
+
+    {% if (f.sec3_title is defined) and (f.sec3_spec1 is defined) and (f.sec3_spec2 is defined) and (f.sec3_spec3 is defined) %}
+        <div class="sec sec-3 container">
+            <div class="col-xs-12">
+                <p class="main-heading" data-bolt-field="templatefields[sec3_title]">{{ f.sec3_title }}</p>
+            </div>
+            <div class="col-xs-4 col-xs-offset-1">
+                <img src="{{ paths.theme }}img/sticker-1.png" alt="" class="sticker-1">
+                <div class="sticker-text-1" data-bolt-field="templatefields[sec3_spec1]">
+                    {{ f.sec3_spec1 }}
+                </div>
+            </div>
+            <div class="col-xs-4 col-xs-offset-1">
+                <img src="{{ paths.theme }}img/sticker-2.png" alt="" class="sticker-2">
+                <div class="sticker-text-2" data-bolt-field="templatefields[sec3_spec2]">
+                    {{ f.sec3_spec2 }}
+                </div>
+            </div>
+            <div class="col-xs-2"></div>
+            <div class="col-xs-4 col-xs-offset-2">
+                <img src="{{ paths.theme }}img/sticker-3.png" alt="" class="sticker-3">
+                <div class="sticker-text-3" data-bolt-field="templatefields[sec3_spec3]">
+                    {{ f.sec3_spec3 }}
+                </div>
+            </div>
+            <img src="{{ paths.theme }}img/hex-3-1.png" alt="" class="hex-3-1">
+        </div>
+    {% endif %}
+
+    {% if (f.sec4_title is defined) and (f.sec4_body is defined) %}
+        <div class="sec sec-4 container">
+            <div class="col-xs-6 col-xs-offset-3 list-sec-3-wrap">
+                <img src="{{ paths.theme }}img/list-sec-3.svg" alt="" class="list-sec-3">
+                <div class="list-sec-3-text">
+                    <p class="main-heading" data-bolt-field="templatefields[sec4_title]">{{ f.sec4_title }}</p>
+                    <div class="sec-4__body" data-bolt-field="templatefields[sec4_body]">
+                        {{ f.sec4_body }}
+                    </div>
+                </div>
+            </div>
+            <img src="{{ paths.theme }}img/hex-4-1.png" alt="" class="hex-4-1">
+            <img src="{{ paths.theme }}img/layer-sec-4-1.svg" alt="" class="layer-sec-4-1">
+            <img src="{{ paths.theme }}img/layer-sec-4-2.svg" alt="" class="layer-sec-4-2">
+        </div>
+    {% endif %}
+
+    {% if (f.sec5_title is defined) and (f.sec5_img is defined)%}
+        <div class="sec sec-5 container">
+            <div class="col-xs-8 col-xs-offset-1 heading-wrap">
+                <a href="/tutors" class="link_nounder"><p class="main-heading" data-bolt-field="templatefields[sec5_title]">{{ f.sec5_title }}</p></a>
+            </div>
+            <div class="col-xs-10 col-xs-offset-1">
+                <div class="photo-wrap">
+                    <img src="{{ paths.theme }}img/tutors.png" alt="" class="photo-frame">
+                    <img src="{{ f.sec5_img|image }}" alt="" class="photo-tutors">
+                </div>
+            </div>
+            <img src="{{ paths.theme }}img/layer-sec-5-1.svg" alt="" class="layer-sec-5-1">
+        </div>
+    {% endif %}
+
+</section>
+
+
+{% include '_footer.twig' %}

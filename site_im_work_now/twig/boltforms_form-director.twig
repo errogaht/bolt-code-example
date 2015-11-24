@@ -1,0 +1,86 @@
+
+{% form_theme form 'boltforms_custom.twig' %}
+
+{% block boltforms_css %}
+<link href="{{ app.paths.extensions }}vendor/bolt/boltforms/css/boltforms.css" rel="stylesheet" type="text/css" />
+{% endblock boltforms_css %}
+
+<div class="boltform">
+{% if debug %}
+    <p class="boltform-error">[Debug] Notification debug mode enabled!</p>
+{% endif %}
+
+{% if error and app.request.get(formname) %}
+    <p class="boltform-error">{{ error }}</p>
+{% endif %}
+
+{% if message and app.request.get(formname) %}
+    <p class="boltform-message">{{ message }}</p>
+{% endif %}
+
+{% if not sent %}
+
+    {{ html_pre }}
+
+    {% if recaptcha.enabled and recaptcha.theme|default('clean') %}
+    <script>
+        var RecaptchaOptions = {
+            theme : '{{ recaptcha.theme }}'
+        };
+    </script>
+    {% endif %}
+
+    {{ form_start(form, {'attr': {'name': formname, 'class': 'nobottommargin'}}) }}
+        {{ form_errors(form) }}
+        <div class="col_one_third">
+            <div class="col_full">
+                {{ form_label(form.name) }}
+                {{ form_errors(form.name) }}
+                {{ form_widget(form.name, { 'attr': {'class': 'sm-form-control required'} } )}}
+            </div>
+            <div class="col_full">
+                {{ form_label(form.email) }}
+                {{ form_widget(form.email, { 'attr': {'class': 'required email sm-form-control'} } )}}
+                {{ form_errors(form.email) }}
+            </div>
+            <div class="col_full">
+                {{ form_label(form.phone) }}
+                {{ form_widget(form.phone, { 'attr': {'class': 'sm-form-control'} } )}}
+                {{ form_errors(form.phone) }}
+            </div>
+            {% if recaptcha.enabled %}
+                <div class="col_full">
+                    <div class="boltform-row">
+                        <label for="form_message" class="required">{{ recaptcha.label|trans({}, translation_domain) }}</label>
+                        <script src="https://www.google.com/recaptcha/api.js?hl=ru_RU" async defer></script>
+                        <div class="g-recaptcha" data-sitekey="{{ recaptcha.public_key }}"></div>
+                    </div>
+                    {% if not recaptcha.valid %}
+                        <ul class="boltform-error">
+                            <li class="boltform-errors">{{ recaptcha.error_message }}</li>
+                        </ul>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="col_two_third col_last">
+            <div class="col_full">
+                {{ form_label(form.message) }}
+                {{ form_widget(form.message, { 'attr': {'class': 'required sm-form-control'} } )}}
+                {{ form_errors(form.message) }}
+            </div>
+
+            <div class="col_full" style="margin-top: 40px;">
+                {{ form_widget(form.submit, { 'attr': {'class': 'button button-3d nomargin'} } ) }}
+            </div>
+        </div>
+
+        <div class="clear"></div>
+
+    {{ form_end(form) }}
+
+{% else %}
+    {{ html_post }}
+{% endif %}
+</div>
+

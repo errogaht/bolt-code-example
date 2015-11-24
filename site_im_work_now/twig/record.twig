@@ -1,0 +1,23 @@
+{% include 'parts/header.twig' %}
+
+    {% include 'parts/page_title.twig' %}
+
+        <section id="content">
+            <div class="content-wrap">
+                {% if record.title2 is defined and record.title2 is not empty %}
+                    <div class="container clearfix">
+                        <div class="heading-block center">
+                            <h2>{{ record.title2 }}</h2>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% block record_content %}
+                    {% if record.body is defined and record.body is not empty %}
+                        {{ record.body }}
+                    {% endif %}
+                {% endblock %}
+            </div>
+        </section>
+
+{% include 'parts/footer.twig' %}

@@ -1,0 +1,95 @@
+{% include '_header.twig' %}
+
+{% setcontent items = 'schedule-records' %}
+{% set days = getScheduleArray(items) %}
+<section class="content">
+    <div class="sec sec-inner container">
+        <div class="col-xs-12">
+            <p class="main-heading schedule-heading"  data-bolt-field="title">
+                {{ record.title }}
+            </p>
+        </div>
+        <div class="col-xs-10 col-xs-offset-1 container schedule">
+
+            <div>
+                <div class="sch-btbl__img-wrap">
+                    <img src="{{ paths.theme }}img/layer-schedule-1.svg" alt="" class="sch-btbl__img1">
+                    <img src="{{ paths.theme }}img/layer-schedule-2.png" alt="" class="sch-btbl__img2">
+                </div>
+                <div class="sch-btbl">
+                    <div class="sch-btbl__top">
+                        <img src="{{ paths.theme }}img/sc/t.png">
+                    </div>
+                    <div class="sch-btbl__mid">
+                        <div class="sch-tbl">
+
+                                <div class="sch-tbl__day-wrapper">
+                                    <div class="form form_course">
+                                        <div class="form__title">Для записи на курс заполните данную форму</div>
+                                        <div class="form__back"><span class="icon-arrow-back"></span> назад</div>
+                                        <div class="form__wrapper">
+                                            {{ simpleform('schedule') }}
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+
+                                    <table class="day-table">
+                                        <tbody>
+                                        {% for day in days %}
+                                            <tr class="day-table__title">
+                                                <td colspan="3">
+                                                    {{ day.title }}
+                                                </td>
+                                            </tr>
+                                            {% if day.items is empty %}
+                                                <tr>
+                                                    <td colspan="3">
+                                                        В этот день у нас выходной!
+                                                    </td>
+                                                </tr>
+                                            {% else %}
+                                                {% for item in day.items %}
+                                                    {% set time = item.values.timefrom ~' - '~ item.values.timeto %}
+                                                    {% setcontent program = 'programs/' ~ item.values.program%}
+                                                    <tr class="day-table__item"
+                                                        data-day="{{ day.title }}"
+                                                        data-time="{{ time }}"
+                                                        data-text="{{ program.values.title }} ({{ item.values.note }})">
+                                                        <td class="day-table-item__time">
+                                                            {{ time }}
+                                                        </td>
+                                                        <td class="day-table-item__text">
+                                                            <a class="link link_white" href="{{ program.link }}">{{ program.values.title }}</a> ({{ item.values.note }})
+                                                        </td>
+                                                        <td class="day-table-item__button">
+                                                            <a href="#" class="link link_white">Записаться</a>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                            {% endif %}
+
+                                        {% endfor %}
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="sch-btbl__btm">
+                        <img src="{{ paths.theme }}img/sc/b.png">
+                    </div>
+                </div>
+                <div class="sch-btbl__img-wrap">
+                    <img src="{{ paths.theme }}img/layer-schedule-3.png" alt="" class="sch-btbl__img3">
+                    <img src="{{ paths.theme }}img/layer-schedule-4.png" alt="" class="sch-btbl__img4">
+                    <img src="{{ paths.theme }}img/layer-schedule-5.png" alt="" class="sch-btbl__img5">
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+{% include '_footer.twig' %}

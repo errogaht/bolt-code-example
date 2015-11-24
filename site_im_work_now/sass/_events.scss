@@ -1,0 +1,52 @@
+.events.small-thumbs {
+    .entry {
+        .entry-image {
+
+
+
+        }
+        .entry-c {
+
+        }
+    }
+}
+
+
+
+.countdown-title {
+    margin-top: 5px;
+    margin-bottom: 1px;
+    text-align: center;
+}
+
+.countdown {
+
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+
+    .inverse & {
+        background-color: transparent;
+        top: inherit!important;
+    }
+
+    .countdown-row {
+        .countdown-section {
+            padding: 8px 0;
+            .countdown-amount {
+                color: #fff;
+                margin-bottom: 4px;
+                font-size: 16px;
+
+                .inverse & {
+                    color: #444444;
+                }
+            }
+            .countdown-period {
+                color: #fff;
+                .inverse & {
+                    color: #444444;
+                }
+            }
+        }
+    }
+}

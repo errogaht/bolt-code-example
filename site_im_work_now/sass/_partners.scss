@@ -1,0 +1,37 @@
+.partners {
+
+}
+
+.partner {
+
+    &__tbl {
+        margin-bottom: 30px;
+    }
+    &__left {
+        text-align: center;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+    &__right {
+        padding-left: 40px;
+    }
+
+    &__title {
+        h4 {
+
+        }
+    }
+
+    &__logo {
+        margin-bottom: 4px;
+        max-width: 136px;
+        max-height: 136px;
+        margin-top: 8px;
+    }
+
+    &__link {
+
+    }
+}

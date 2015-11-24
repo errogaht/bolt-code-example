@@ -1,0 +1,37 @@
+.file-list {
+
+}
+
+.file-item {
+    margin-bottom: 10px;
+    &__icon {
+        width: 24px;
+        img {
+            width: 36px;
+        }
+    }
+
+    &__description {
+        float: left;
+    }
+
+    &__name {
+
+    }
+
+    &__size {
+
+    }
+
+    &__type {
+
+    }
+
+    &__tags {
+
+    }
+
+    &__meta {
+        float: left;
+    }
+}

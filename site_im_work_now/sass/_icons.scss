@@ -1,0 +1,172 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "sindy-icons";
+    src:url("fonts/sindy-icons.eot");
+    src:url("fonts/sindy-icons.eot?#iefix") format("embedded-opentype"),
+    url("fonts/sindy-icons.woff") format("woff"),
+    url("fonts/sindy-icons.ttf") format("truetype"),
+    url("fonts/sindy-icons.svg#sindy-icons") format("svg");
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+[data-icon]:before {
+    font-family: "sindy-icons" !important;
+    content: attr(data-icon);
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icomoon-"]:before,
+[class*=" icomoon-"]:before {
+    font-family: "sindy-icons" !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icomoon-smile:before {
+    content: "a";
+}
+.icomoon-email:before {
+    content: "b";
+}
+.icomoon-cert:before {
+    content: "c";
+}
+.icomoon-doc:before {
+    content: "d";
+}
+.icomoon-tie:before {
+    content: "e";
+}
+.icomoon-bubble:before {
+    content: "f";
+}
+.icomoon-peoples:before {
+    content: "g";
+}
+.icomoon-hammer:before {
+    content: "h";
+}
+.icomoon-question:before {
+    content: "i";
+}
+.icomoon-diamond:before {
+    content: "j";
+}
+.icomoon-flag:before {
+    content: "k";
+}
+.icomoon-read:before {
+    content: "l";
+}
+.icomoon-search:before {
+    content: "m";
+}
+.icomoon-cert2:before {
+    content: "n";
+}
+.icomoon-shield2:before {
+    content: "o";
+}
+.icomoon-measure:before {
+    content: "p";
+}
+.icomoon-factory:before {
+    content: "q";
+}
+.icomoon-write:before {
+    content: "r";
+}
+.icomoon-tools:before {
+    content: "s";
+}
+.icomoon-shield:before {
+    content: "t";
+}
+.icomoon-buildings:before {
+    content: "u";
+}
+.icomoon-star:before {
+    content: "v";
+}
+.icomoon-image:before {
+    content: "w";
+}
+.icomoon-phone:before {
+    content: "x";
+}
+.icomoon-case:before {
+    content: "y";
+}
+.icomoon-peoples2:before {
+    content: "z";
+}
+.icomoon-diamond2:before {
+    content: "A";
+}
+.icomoon-tag:before {
+    content: "B";
+}
+.icomoon-bolt:before {
+    content: "C";
+}
+.icomoon-rocket:before {
+    content: "D";
+}
+.icomoon-wind:before {
+    content: "E";
+}
+.icomoon-palette:before {
+    content: "F";
+}
+.icomoon-90degree:before {
+    content: "G";
+}
+.icomoon-pencil:before {
+    content: "H";
+}
+.icomoon-umbrella:before {
+    content: "I";
+}
+.icomoon-download:before {
+    content: "J";
+}
+.icomoon-cd:before {
+    content: "K";
+}
+.icomoon-monitor:before {
+    content: "L";
+}
+.icomoon-network:before {
+    content: "M";
+}
+.icomoon-odnoklassniki:before {
+    content: "N";
+}
+.icomoon-rub:before {
+    content: "O";
+}
+.icomoon-info:before {
+    content: "P";
+}
+.icomoon-spanner:before {
+    content: "Q";
+}
+.icomoon-thumbsup:before {
+    content: "R";
+}

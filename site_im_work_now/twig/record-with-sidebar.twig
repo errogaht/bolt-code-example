@@ -1,0 +1,12 @@
+{% extends "record.twig" %}
+
+{% block record_content %}
+    <div class="container clearfix">
+        <div class="postcontent nobottommargin">
+            {% block record_with_sidebar_content %}
+                {{ parent() }}
+            {% endblock %}
+        </div>
+        {% include 'parts/sidebar.twig' %}
+    </div>
+{% endblock %}

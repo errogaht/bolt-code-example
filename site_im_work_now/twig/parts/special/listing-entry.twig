@@ -1,0 +1,40 @@
+<div class="entry clearfix">
+    <div class="entry-image">
+        <a href="#">
+            <img src="{{ img }}" alt="{{ title }}">
+
+        </a>
+
+        <div class="countdown-wrapper">
+            <div class="countdown-title">
+                До конца акции:
+            </div>
+            <div class="event-countdown{{ index }} countdown"></div>
+            <script>
+                jQuery(document).ready(function ($) {
+                    $('.event-countdown{{ index }}').countdown({until: new Date({{ dateEnd }})});
+                });
+            </script>
+        </div>
+
+    </div>
+    <div class="entry-c">
+        <div class="entry-title">
+            <h2><a href="{{ link }}">{{ title }}</a></h2>
+        </div>
+        <ul class="entry-meta clearfix">
+            {% if for == 'Предпренимателям' %}
+                <li><span class="label label-info">Предпренимателям</span></li>
+            {% elseif for == 'Физическим лицам' %}
+                <li><span class="label label-success">Физическим лицам</span></li>
+            {% endif %}
+
+            <li><i class="icon-time"></i> {{ time }}</li>
+        </ul>
+        <div class="entry-content">
+            <p>{{ description }}</p>
+            <a href="{{ link }}" class="btn btn-default">Подробнее</a> <a href="{{ link }}" class="btn btn-danger">Участвовать
+                в акции</a>
+        </div>
+    </div>
+</div>

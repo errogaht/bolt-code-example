@@ -1,0 +1,44 @@
+{% include '_header.twig' %}
+
+{# для contenttype = programs у нас хитрость, там они бывают разных типов
+   т тут сначала мы проверяем по ЮРЛ что за тип программы запрашивают и
+   делаем соответствующую выборку чтобы показать программы только нужного типа #}
+{% if page.link == '/programs/for-children' %}
+    {% setcontent items = 'programs' where {type: 'Для детей'} orderby '+sortorder'%}
+{% elseif page.link == '/programs/for-junior' %}
+    {% setcontent items = 'programs' where {type: 'Для подростков'} orderby '+sortorder'%}
+{% elseif page.link == '/programs/for-adult' %}
+    {% setcontent items = 'programs' where {type: 'Для взрослых'} orderby '+sortorder'%}
+{% else %}
+    {# это общий шаблон для листингов, элементы мы получаем из contenttype с названием slug страницы
+       тоесть мы не пользуемся встроенным функционалом страниц-листингов для contenttype'ов
+       так как не понятно как вносить мета данные вообще то так что у нас свой шаблон, но правило такое
+       что страница листинга должна иметь slug такой же как contenttypeslug того типа записей для которых мы создаём
+       листинг #}
+    {% setcontent items = page.values.slug %}
+{% endif %}
+
+<section class="content listing-type1">
+    <div class="sec sec-inner container">
+        <div class="col-xs-12"><p class="main-heading" data-bolt-field="title">{{ page.title }}</p>
+        </div>
+        <div class="col-xs-12 container programs">
+            <img src="{{ paths.theme }}img/layer-programs-1.png" alt="" class="layer-programs-1">
+            <img src="{{ paths.theme }}img/layer-sec-5-1.svg" alt="" class="layer-programs-2">
+            <img src="{{ paths.theme }}img/layer-programs-3.svg" alt="" class="layer-programs-3">
+            <img src="{{ paths.theme }}img/layer-programs-4.svg" alt="" class="layer-programs-4">
+            {% for item in items %}
+                <a href="{{ item.link }}" class="col-xs-4 program">
+                    <img src="{{ paths.theme }}img/program-frame-{{ cycle(['1', '2'], loop.index) }}.png" alt="" class="program-photo-frame">
+                    <div class="program-photo">
+                        <img src="{{ item.image|image(265, 165, "r") }}" title="{{ item.title }}">
+                    </div>
+                    <div class="program-desc-text">{{ item.title }}</div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+{% include '_footer.twig' %}

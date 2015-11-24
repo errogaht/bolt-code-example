@@ -1,0 +1,322 @@
+{% extends "record.twig" %}
+
+{% block record_content %}
+    <div class="container clearfix">
+        {% setcontent testimonials = 'testimonials' %}
+        {% if testimonials is defined and testimonials is not empty %}
+            <ul class="testimonials-grid clearfix">
+                {% for testimonial in testimonials %}
+                    <li>
+                        <div class="testimonial">
+                            <div class="testi-image">
+                                {% if testimonial.image is not empty %}
+                                    <img src="{{ testimonial.image|thumbnail(64, 64, 'r') }}" alt="{{ testimonial.title }}">
+                                {% else %}
+                                    <img src="{{ paths.theme }}images/icons/user.svg" alt="{{ testimonial.title }}" width="64" height="64" data-altsrc="{{ paths.theme }}images/icons/user-128x128.png">
+                                {% endif %}
+                            </div>
+                            <div class="testi-content">
+                                <p>{{ testimonial.body }}</p>
+                                <div class="testi-meta">
+                                    {{ testimonial.title }}
+                                    <span>{{ testimonial.person_status }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <div class="container clearfix">
+        {% include 'parts/call-us.twig' with {
+        'text': 'Если у вас появились вопросы или приезжайте по аресу г. Санкт – Петербург, наб. Свердловская, д.4 лит. А.'
+        } %}
+    </div>
+
+    <div class="section notopmargin">
+        <div class="container clearfix nobottommargin">
+            <div class="fancy-title title-dotted-border">
+                <h3>Примеры работы</h3>
+            </div>
+
+            <div id="oc-portfolio" class="owl-carousel portfolio-carousel">
+
+                <div class="oc-item">
+                    <div class="iportfolio">
+                        <div class="portfolio-image">
+                            <a href="portfolio-single.html">
+                                <img src="{{ paths.theme }}images/portfolio/4/1.jpg" alt="Open Imagination">
+                            </a>
+
+                            <div class="portfolio-overlay">
+                                <a href="{{ paths.theme }}images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i
+                                            class="icon-line-plus"></i></a>
+                                <a href="portfolio-single.html" class="right-icon"><i
+                                            class="icon-line-ellipsis"></i></a>
+                            </div>
+                        </div>
+                        <div class="portfolio-desc">
+                            <h3><a href="portfolio-single.html">Open Imagination</a></h3>
+                            <span><a href="#">Media</a>, <a href="#">Icons</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="oc-item">
+                    <div class="iportfolio">
+                        <div class="portfolio-image">
+                            <a href="portfolio-single.html">
+                                <img src="{{ paths.theme }}images/portfolio/4/2.jpg" alt="Locked Steel Gate">
+                            </a>
+
+                            <div class="portfolio-overlay">
+                                <a href="{{ paths.theme }}images/portfolio/full/2.jpg" class="left-icon" data-lightbox="image"><i
+                                            class="icon-line-plus"></i></a>
+                                <a href="portfolio-single.html" class="right-icon"><i
+                                            class="icon-line-ellipsis"></i></a>
+                            </div>
+                        </div>
+                        <div class="portfolio-desc">
+                            <h3><a href="portfolio-single.html">Locked Steel Gate</a></h3>
+                            <span><a href="#">Illustrations</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="oc-item">
+                    <div class="iportfolio">
+                        <div class="portfolio-image">
+                            <a href="#">
+                                <img src="{{ paths.theme }}images/portfolio/4/3.jpg" alt="Mac Sunglasses">
+                            </a>
+
+                            <div class="portfolio-overlay">
+                                <a href="http://vimeo.com/89396394" class="left-icon" data-lightbox="iframe"><i
+                                            class="icon-line-play"></i></a>
+                                <a href="portfolio-single-video.html" class="right-icon"><i
+                                            class="icon-line-ellipsis"></i></a>
+                            </div>
+                        </div>
+                        <div class="portfolio-desc">
+                            <h3><a href="portfolio-single-video.html">Mac Sunglasses</a></h3>
+                            <span><a href="#">Graphics</a>, <a href="#">UI Elements</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="oc-item">
+                    <div class="iportfolio">
+                        <div class="portfolio-image">
+                            <a href="portfolio-single.html">
+                                <img src="{{ paths.theme }}images/portfolio/4/5.jpg" alt="Console Activity">
+                            </a>
+
+                            <div class="portfolio-overlay">
+                                <a href="{{ paths.theme }}images/portfolio/full/5.jpg" class="left-icon" data-lightbox="image"><i
+                                            class="icon-line-plus"></i></a>
+                                <a href="portfolio-single.html" class="right-icon"><i
+                                            class="icon-line-ellipsis"></i></a>
+                            </div>
+                        </div>
+                        <div class="portfolio-desc">
+                            <h3><a href="portfolio-single.html">Console Activity</a></h3>
+                            <span><a href="#">UI Elements</a>, <a href="#">Media</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="oc-item">
+                    <div class="iportfolio">
+                        <div class="portfolio-image">
+                            <a href="portfolio-single-video.html">
+                                <img src="{{ paths.theme }}images/portfolio/4/7.jpg" alt="Backpack Contents">
+                            </a>
+
+                            <div class="portfolio-overlay">
+                                <a href="http://www.youtube.com/watch?v=kuceVNBTJio" class="left-icon"
+                                   data-lightbox="iframe"><i class="icon-line-play"></i></a>
+                                <a href="portfolio-single-video.html" class="right-icon"><i
+                                            class="icon-line-ellipsis"></i></a>
+                            </div>
+                        </div>
+                        <div class="portfolio-desc">
+                            <h3><a href="portfolio-single-video.html">Backpack Contents</a></h3>
+                            <span><a href="#">UI Elements</a>, <a href="#">Icons</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="oc-item">
+                    <div class="iportfolio">
+                        <div class="portfolio-image">
+                            <a href="portfolio-single.html">
+                                <img src="{{ paths.theme }}images/portfolio/4/8.jpg" alt="Sunset Bulb Glow">
+                            </a>
+
+                            <div class="portfolio-overlay">
+                                <a href="{{ paths.theme }}images/portfolio/full/8.jpg" class="left-icon" data-lightbox="image"><i
+                                            class="icon-line-plus"></i></a>
+                                <a href="portfolio-single.html" class="right-icon"><i
+                                            class="icon-line-ellipsis"></i></a>
+                            </div>
+                        </div>
+                        <div class="portfolio-desc">
+                            <h3><a href="portfolio-single.html">Sunset Bulb Glow</a></h3>
+                            <span><a href="#">Graphics</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="oc-item">
+                    <div class="iportfolio">
+                        <div class="portfolio-image">
+                            <a href="portfolio-single-video.html">
+                                <img src="{{ paths.theme }}images/portfolio/4/10.jpg" alt="Study Table">
+                            </a>
+
+                            <div class="portfolio-overlay">
+                                <a href="http://vimeo.com/91973305" class="left-icon" data-lightbox="iframe"><i
+                                            class="icon-line-play"></i></a>
+                                <a href="portfolio-single-video.html" class="right-icon"><i
+                                            class="icon-line-ellipsis"></i></a>
+                            </div>
+                        </div>
+                        <div class="portfolio-desc">
+                            <h3><a href="portfolio-single-video.html">Study Table</a></h3>
+                            <span><a href="#">Graphics</a>, <a href="#">Media</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="oc-item">
+                    <div class="iportfolio">
+                        <div class="portfolio-image">
+                            <a href="portfolio-single.html">
+                                <img src="{{ paths.theme }}images/portfolio/4/11.jpg" alt="Workspace Stuff">
+                            </a>
+
+                            <div class="portfolio-overlay">
+                                <a href="{{ paths.theme }}images/portfolio/full/11.jpg" class="left-icon" data-lightbox="image"><i
+                                            class="icon-line-plus"></i></a>
+                                <a href="portfolio-single.html" class="right-icon"><i
+                                            class="icon-line-ellipsis"></i></a>
+                            </div>
+                        </div>
+                        <div class="portfolio-desc">
+                            <h3><a href="portfolio-single.html">Workspace Stuff</a></h3>
+                            <span><a href="#">Media</a>, <a href="#">Icons</a></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <script type="text/javascript">
+
+                jQuery(document).ready(function ($) {
+
+                    var ocPortfolio = $("#oc-portfolio");
+
+                    ocPortfolio.owlCarousel({
+                        margin: 20,
+                        nav: true,
+                        navText: ['<i class="icon-angle-left"></i>', '<i class="icon-angle-right"></i>'],
+                        autoplay: false,
+                        autoplayHoverPause: true,
+                        dots: false,
+                        responsive: {
+                            0: {items: 1},
+                            600: {items: 2},
+                            1000: {items: 3},
+                            1200: {items: 4}
+                        }
+                    });
+
+                });
+
+            </script>
+
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="container clearfix">
+        <div class="col_full nomargin">
+            <div class="fancy-title title-dotted-border">
+                <h3>Заказ услуги с сайта</h3>
+            </div>
+        </div>
+        <div id="contact-form-result" data-notify-type="success"
+             data-notify-msg="<i class=icon-ok-sign></i> Message Sent Successfully!"></div>
+        <form class="nobottommargin" id="template-contactform" name="template-contactform"
+              action="include/sendemail.php" method="post">
+
+            <div class="form-process"></div>
+
+            <div class="col_one_third">
+                <div class="col_full">
+                    <label for="template-contactform-name">Имя
+                        <small>*</small>
+                    </label>
+                    <input type="text" id="template-contactform-name" name="template-contactform-name" value=""
+                           class="sm-form-control required"/>
+                </div>
+                <div class="col_full">
+                    <label for="template-contactform-email">Email
+                        <small>*</small>
+                    </label>
+                    <input type="email" id="template-contactform-email" name="template-contactform-email" value=""
+                           class="required email sm-form-control"/>
+                </div>
+                <div class="col_full col_last">
+                    <label for="template-contactform-phone">Телефон</label>
+                    <input type="text" id="template-contactform-phone" name="template-contactform-phone" value=""
+                           class="sm-form-control"/>
+                </div>
+            </div>
+            <div class="col_two_third col_last">
+                <div class="col_full">
+                    <label for="template-contactform-message">Сообщение
+                        <small>*</small>
+                    </label>
+            <textarea class="required sm-form-control" id="template-contactform-message"
+                      name="template-contactform-message" rows="6" cols="30"></textarea>
+                </div>
+
+                <div class="col_full hidden">
+                    <input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck"
+                           value="" class="sm-form-control"/>
+                </div>
+                <div class="col_full">
+                    <button class="button button-3d fleft" style="margin-top: 21px;width: 100%;" type="submit"
+                            id="template-contactform-submit" name="template-contactform-submit" value="submit">
+                        Отправить заявку
+                    </button>
+                </div>
+            </div>
+
+
+        </form>
+        <script type="text/javascript">
+
+            $("#template-contactform").validate({
+                submitHandler: function (form) {
+                    $('.form-process').fadeIn();
+                    $(form).ajaxSubmit({
+                        target: '#contact-form-result',
+                        success: function () {
+                            $('.form-process').fadeOut();
+                            $(form).find('.sm-form-control').val('');
+                            $('#contact-form-result').attr('data-notify-msg', $('#contact-form-result').html()).html('');
+                            SEMICOLON.widget.notifications($('#contact-form-result'));
+                        }
+                    });
+                }
+            });
+
+        </script>
+    </div>
+{% endblock %}
+
+
+

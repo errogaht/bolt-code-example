@@ -1,0 +1,18 @@
+<ul class="entry-meta clearfix">
+    {% if date is defined %}
+        <li><i class="icon-calendar3"></i> {{ date|date("d.m.Y") }}</li>
+    {% endif %}
+
+    {% if author is not empty %}
+        <li><a href="#"><i class="icon-user"></i> {{ author }}</a></li>
+    {% endif %}
+
+    {% if categories is not empty %}
+        <li><i class="icon-folder-open"></i> {% for cat in categories %}<a href="#">{{ cat }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</li>
+    {% endif %}
+
+    {% if comments is defined %}
+        <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 13 Comments</a></li>
+    {% endif %}
+
+</ul>

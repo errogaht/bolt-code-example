@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="{{ htmllang() }}" class="no-js">
+<head>
+    <script src="{{ paths.theme }}js/modernizr-custom.js"></script>
+
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <!-- Stylesheets
+    ============================================= -->
+    <!--<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Ubuntu:400,300,500,700,400italic|Roboto+Slab&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ paths.theme }}css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="{{ paths.theme }}style.css" type="text/css" />
+    <link rel="stylesheet" href="{{ paths.theme }}css/dark.css" type="text/css" />
+    <link rel="stylesheet" href="{{ paths.theme }}css/font-icons.css" type="text/css" />
+    <link rel="stylesheet" href="{{ paths.theme }}css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="{{ paths.theme }}css/magnific-popup.css" type="text/css" />
+
+    <link rel="stylesheet" href="{{ paths.theme }}css/responsive.css" type="text/css" />
+    <link rel="stylesheet" href="{{ paths.theme }}custom.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+
+    <!-- External JavaScripts
+    ============================================= -->
+    <script type="text/javascript" src="{{ paths.theme }}js/jquery.js"></script>
+    <script src="{{ paths.theme }}js/svgreplacer.js"></script>
+    <script type="text/javascript" src="{{ paths.theme }}js/plugins.js"></script>
+    <!--script type="text/javascript" src="{{ paths.theme }}js/retina.min.js"></script-->
+    <script type="text/javascript" src="{{ paths.theme }}js/datatables/datatables.min.js"></script>
+    <script type="text/javascript" src="{{ paths.theme }}js/datatables/date-de.js"></script>
+
+    <!-- Document Title
+    ============================================= -->
+    <title>
+        {% if record.title is defined %}{{ record.title|striptags }} | {% endif %}
+        {{ app.config.get('general/sitename') }}
+        {% if record.title is not defined and app.config.get('general/payoff') %} | {{ app.config.get('general/payoff') }}{% endif %}
+    </title>
+
+    {# теги для соц. сетей #}
+    <meta property="og:title" content="Заголовок" />
+    <meta property="og:description" content="Описание" />
+    <meta property="og:url" content="Ссылка на страницу" />
+    <meta property="og:image" content="Ссылка на картинку" />
+
+    <meta name="title" content="Заголовок" />
+    <meta name="description" content="Описание" />
+    <link rel="image_src" href="#" />
+
+</head>
+
+<body class="stretched no-transition">
+
+<!-- Document Wrapper
+============================================= -->
+<div id="wrapper" class="clearfix">
+    {% include 'parts/header__topbar.twig' %}
+    <!-- Header
+    ============================================= -->
+    <header id="header" class="sticky-style-2">
+        {% include 'parts/header__logo.twig' %}
+        <div id="header-wrap">
+            {% include 'parts/header__primary-menu.twig' %}
+        </div>
+    </header><!-- #header end -->
+    {% block content %}{% endblock %}

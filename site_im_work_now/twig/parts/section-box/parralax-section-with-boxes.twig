@@ -1,0 +1,21 @@
+<div class="section parallax notopmargin notopborder{% if dark is defined and dark == true %} dark{% endif %}"
+     style="background-image: url('{{ background_image }}'); padding: 100px 0;"
+     data-stellar-background-ratio="0.3">
+    <div class="container clearfix">
+        <div class="emphasis-title center">
+            <h2>{{ title }}</h2>
+        </div>
+        {% set col = 12 / boxes|length %}
+        <div class="row common-height">
+            {% for box in boxes %}
+                <div class="col-md-{{ col }} bottommargin">
+                    <div class="section-box">
+                        <h3>{{ box.title }}</h3>
+                        <p>{{ box.text }}</p>
+                        <i class="{{ box.icon }} bgicon"></i>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

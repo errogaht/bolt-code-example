@@ -1,0 +1,51 @@
+
+.section.parallax {
+
+    .emphasis-title {
+        h2 {
+            color: #ffffff;
+            font-size: 52px;
+        }
+    }
+}
+
+.section-box {
+    position: relative;
+    padding: 20px;
+    background-color: rgba(255,255,255,0.80);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    overflow: hidden;
+    h3 {
+        margin-bottom: 20px;
+    }
+
+    .bgicon {
+        bottom: -28px;
+        right: -35px;
+        font-size: 180px;
+        color: rgba(0, 0, 0, 0.1);
+    }
+
+
+    .dark & {
+        background-color: rgba(0,0,0,.4);
+        border: 1px solid rgba(0,0,0,.1);
+        box-shadow: 0 1px 1px rgba(0,0,0,.1);
+        color: #ffffff;
+        h3 {
+            color: #ffffff;
+        }
+
+        .bgicon {
+            bottom: -28px;
+            right: -35px;
+            font-size: 180px;
+            color: rgba(0, 0, 0, 0.3);
+        }
+    }
+}

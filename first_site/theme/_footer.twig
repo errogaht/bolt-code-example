@@ -1,0 +1,38 @@
+{% setcontent contactsPage = 'pages' where {slug: 'contacts'} returnsingle %}
+{% if contactsPage is defined %}
+    {% set phones = getPhonesArray(contactsPage.templatefields.phones) %}
+{% endif %}
+
+</div>
+<footer class="footer">
+    <div class="footer__phones">
+        {% if phones is defined %}
+            <span data-bolt-field="templatefields[footer_text1]">{{ contactsPage.templatefields.footer_text1 }}</span>
+            {% for phone in phones %}
+                <span class="phone"><a href="tel:{{ phone.fullPhone }}">+&nbsp;<span class="phone-code">{{ phone.countryCode }}</span>  {{ phone.withoutCountry }}</a></span>
+            {% endfor %}
+            {{ contactsPage.templatefields.footer_text2 }}
+        {% endif %}
+    </div>
+    <div class="footer__form">
+        {{ simpleform('contact') }}
+        <div class="footer__back"><span class="icon-arrow-back"></span> назад</div>
+    </div>
+
+    <div class="footer__soc">
+        {% if contactsPage.templatefields.footer_fb is not empty %}
+            <div class="social"><a href="{{ contactsPage.templatefields.footer_fb }}" class="link link_white link_social"><span class="icon-facebook-with-circle"></span></a></div>
+        {% endif %}
+        {% if contactsPage.templatefields.footer_vk is not empty %}
+            <div class="social"><a href="{{ contactsPage.templatefields.footer_vk }}" class="link link_white link_social"><span class="icon-vk-with-circle"></span></a></div>
+        {% endif %}
+        {% if contactsPage.templatefields.footer_instagram is not empty %}
+            <div class="social"><a href="{{ contactsPage.templatefields.footer_instagram }}" class="link link_white link_social"><span class="icon-instagram-with-circle"></span></a></div>
+        {% endif %}
+    </div>
+</footer>
+<script src="{{ paths.theme }}javascripts/app.min.js"></script>
+<script src="{{ paths.theme }}javascripts/custom.min.js"></script>
+
+</body>
+</html>
